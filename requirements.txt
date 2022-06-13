@@ -1,0 +1,6 @@
+tqdm==4.64.0
+pandas==1.4.2
+scikit-learn==1.1.1
+Flask==2.0.3
+Sastrawi==1.0.1
+Werkzeug==2.0.3
