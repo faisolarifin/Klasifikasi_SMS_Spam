@@ -63,8 +63,31 @@
 
     <div class="container">        
         <div class="row mt-5 justify-content-center">
+            {% if models|length > 0 %}
+            <div class="col-sm-8 bg-white shadow-sm p-4 px-5 pb-3 mt-1 rounded-3">
+                <table class="table">
+                    {% for nm in models %}
+                    <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{nm}}</td>
+                    <td class="text-end">
+                        <form action="{{url_for('delete')}}" method="post">
+                            <input type="hidden" name="nama_model" value="{{nm}}">
+                            <button type="submit" class="btn btn-sm btn-danger"  onclick="if (confirm('Apakah model akan dihapus?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Hapus</button>
+                        </form>
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endif %}
             <div class="col-sm-8 bg-white shadow-sm p-4 px-5 pb-3 mt-1 rounded-3">
                 <div class="row justify-content-center">
+                    {% if msg %}
+                    <div class="alert alert-danger" role="alert">
+                        {{msg|safe}}
+                    </div>
+                    {% endif %}
                     <form action="{{ url_for('index') }}" method="post">
                         <div class="row">
                             <div class="mb-3">

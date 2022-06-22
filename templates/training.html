@@ -81,6 +81,7 @@
                                 <button type="submit" class="btn btn-primary">Proses</button>
                             </div>
                             <div class="mb-3">
+                                {% if r %}
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>Kelas</th>
@@ -106,6 +107,7 @@
                                     {% endif %}
                                     {% endfor%}
                                 </table>
+                                {% endif %}
                             </div>
                         </div>
                     </form>
